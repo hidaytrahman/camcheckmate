@@ -32,5 +32,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: build and deploy
         run: |
+         git config --global user.name "Hidayt Rahman"
          npm run deploy
-          echo deployed
+         echo deployed successfully
