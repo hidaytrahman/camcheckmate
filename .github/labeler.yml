@@ -1,0 +1,15 @@
+# Add 'test' label to any change to *.spec.js files within the source dir
+test:
+    - src/**/*.spec.js
+
+# Add 'development' label to any change to src files within the source dir EXCEPT for the docs sub-folder
+development:
+    - any: ['src/**', '!src/docs/*']
+
+# Add 'utils' label to any change to src utils files within
+utils:
+    - any: ['src/utils/**']
+
+# Add 'views' label to any change to src utils files within
+views:
+    - any: ['src/views/**']
