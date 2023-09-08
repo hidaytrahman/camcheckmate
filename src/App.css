@@ -1,42 +1,99 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1900px;
+    margin: 0 auto;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.content-holder {
+    min-height: 80vh;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hasImage:hover section {
+    background-color: rgba(5, 5, 5, 0.4);
+}
+.hasImage:hover button:hover {
+    background: rgba(5, 5, 5, 0.45);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#overlay p,
+i {
+    opacity: 0;
 }
 
-.card {
-  padding: 2em;
+#overlay.draggedover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+#overlay.draggedover p,
+#overlay.draggedover i {
+    opacity: 1;
 }
 
-.read-the-docs {
-  color: #888;
+.group:hover .group-hover\:text-blue-800 {
+    color: #2b6cb0;
 }
+
+.scan-container {
+    /* background-color: rgb(143, 143, 143); */
+    padding: 1rem;
+}
+
+.scan-container .scanner {
+    border: 1px solid #dfdddd;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    background: #fdfdfd;
+}
+
+.scan-container .scanner-tv {
+}
+
+.scan-container .scanner .image-section {
+    width: 100%;
+    text-align: center;
+}
+
+.scan-container .scanner img {
+    /* width: 100%; */
+    /* padding: 1rem 0; */
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+[type='file'] {
+    height: 0;
+    overflow: hidden;
+    width: 0;
+}
+
+[type='file'] + label {
+    background: #7c9d96;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Rubik', sans-serif;
+    font-size: inherit;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    outline: none;
+    padding: 5px 20px;
+    position: relative;
+    transition: all 0.3s;
+    vertical-align: middle;
+}
+
+[type='file'] + label.btn-2 {
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+[type='file'] + label.btn-2:hover {
+    background-color: #a1ccd1;
+}
+
+/* video {
+    transform: scaleX(-1);
+} */
