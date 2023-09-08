@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import Nav from '../common/Nav';
 import { navigation } from '../../utils';
 import AnimateProductHighlight from '../common/AnimateProductHighlight';
 import AnimateBasicText from '../common/Basic';
-import { Fade, Flip, AttentionSeeker } from 'react-awesome-reveal';
+import { Fade, AttentionSeeker } from 'react-awesome-reveal';
 import { Button } from 'react-carbonui';
 import { useNavigate } from 'react-router-dom';
 

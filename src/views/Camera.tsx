@@ -3,7 +3,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import { AttentionSeeker } from 'react-awesome-reveal';
 import LoaderWrapped from '../components/common/LoaderWrapped';
-import { useNavigate } from 'react-router-dom';
 
 const features = [
 	// { name: 'Images', description: 'Choose Images from devices' },
@@ -14,7 +13,7 @@ const features = [
 ];
 
 export default function Camera() {
-	const navigate = useNavigate();
+	// @ts-ignore
 	const [selectedImage, setSelectedImage] = useState(null);
 	const webcamRef = useRef(null);
 	const [imgSrc, setImgSrc] = useState(null);
@@ -22,7 +21,9 @@ export default function Camera() {
 	const [loading, setLoading] = useState(true);
 	const [resuleView, setResultView] = useState(false);
 
+	// @ts-ignore
 	const [deviceId, setDeviceId] = useState({});
+	// @ts-ignore
 	const [devices, setDevices] = useState([]);
 
 	const videoConstraints = {
@@ -174,7 +175,7 @@ export default function Camera() {
 						</p>
 
 						<dl className='mt-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-1 sm:gap-y-2 lg:gap-x-8'>
-							{features.map((feature, index) => (
+							{features.map((feature) => (
 								<div key={feature.name} className='border-gray-200 pt-1'>
 									<dt className='font-medium text-gray-900'>{feature.name}</dt>
 									<dd className='mt-1 text-sm text-gray-500'>{feature.description}</dd>

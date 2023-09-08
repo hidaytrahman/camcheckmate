@@ -1,7 +1,5 @@
-import { useRef } from 'react';
-
 const TextAnimation = () => {
-    return <></>;
+	return <></>;
 };
 
 export default TextAnimation;
