@@ -93,7 +93,11 @@ export default function Camera() {
 										<span className='bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
 											Connected
 										</span>
-									) : null}
+									) : (
+										<span className='bg-green-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300'>
+											Not Conntected
+										</span>
+									)}
 								</p>
 								<h2 className='mt-2 text-centwr'>Use web camera</h2>
 								<div className='flex gap-2 mt-2 items-center justify-center'>
