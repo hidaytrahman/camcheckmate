@@ -1,14 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 
+# this is not getting used currently as we are using vercel
 name: CI & CD
 
 # Controls when the workflow will run
 on:
     # Triggers the workflow on push or pull request events but only for the "main" branch
     push:
-        branches: ['main']
+        branches: ['no']
     pull_request:
-        branches: ['main']
+        branches: ['no']
 
     # Allows you to run this workflow manually from the Actions tab
     workflow_dispatch:
