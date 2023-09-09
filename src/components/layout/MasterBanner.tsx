@@ -53,7 +53,7 @@ export default function MasterBanner() {
 				</Dialog>
 			</header>
 
-			<div className='relative isolate px-6 pt-14 lg:px-8'>
+			<div className='relative isolate px-6 pt-10 lg:px-8'>
 				<div
 					className='absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80'
 					aria-hidden='true'
@@ -66,7 +66,7 @@ export default function MasterBanner() {
 						}}
 					/>
 				</div>
-				<div className='mx-auto max-w-2xl py-32 sm:py-48 lg:py-56'>
+				<div className='mx-auto max-w-2xl py-18 sm:py-48 lg:py-20'>
 					{/* <div className='hidden sm:mb-8 sm:flex sm:justify-center'>
 						<div className='relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20'>
 							Shop smarter, shop better, with CamCheckMate!{' '}
