@@ -7,7 +7,7 @@ import AnimateProductHighlight from '../common/AnimateProductHighlight';
 import AnimateBasicText from '../common/Basic';
 import { Fade, AttentionSeeker } from 'react-awesome-reveal';
 import { Button } from 'react-carbonui';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function MasterBanner() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
@@ -38,13 +38,13 @@ export default function MasterBanner() {
 							<div className='-my-6 divide-y divide-gray-500/10'>
 								<div className='space-y-2 py-6'>
 									{navigation.map((item) => (
-										<a
+										<Link
 											key={item.name}
-											href={item.href}
+											to={item.href}
 											className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
 										>
 											{item.name}
-										</a>
+										</Link>
 									))}
 								</div>
 							</div>
