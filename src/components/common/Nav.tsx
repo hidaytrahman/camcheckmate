@@ -7,13 +7,9 @@ const Nav = ({ setMobileMenuOpen }: { setMobileMenuOpen: (arg: boolean) => void 
 		<nav className='flex items-center justify-between p-6 lg:px-8' aria-label='Global'>
 			<div className='flex lg:flex-1'>
 				<a href='#' className='-m-1.5 p-1.5'>
-					<span className='sr-only'>Your Company</span>
-					CamCheckMate
-					{/* <img
-                        className="h-20 w-auto"
-                        src="/public/cartSenseLogo.png"
-                        alt=""
-                    /> */}
+					<span className='sr-only'>CamCheckMate</span>
+
+					<img className='h-20 w-auto' src='/public/cartSenseLogo.png' alt='' />
 				</a>
 			</div>
 			<div className='flex lg:hidden'>
@@ -33,14 +29,6 @@ const Nav = ({ setMobileMenuOpen }: { setMobileMenuOpen: (arg: boolean) => void 
 					</a>
 				))}
 			</div>
-			{/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a
-                    href="#"
-                    className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                    Log in <span aria-hidden="true">&rarr;</span>
-                </a>
-            </div> */}
 		</nav>
 	);
 };
