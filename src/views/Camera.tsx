@@ -159,6 +159,14 @@ export default function Camera() {
 
 								{cameraMode ? (
 									<>
+										<br />
+										<Dropdown
+											title='Choose Camera'
+											items={devices}
+											activeDevice={activeDevice}
+											onChangeAction={onChangeAction}
+										/>
+										<br />
 										<div className='live-camera m-2'>
 											<Webcam
 												// @ts-ignore
@@ -166,23 +174,6 @@ export default function Camera() {
 												audio={false}
 												ref={webcamRef}
 												videoConstraints={videoConstraints}
-											/>
-
-											{/* {devices.map((device, key) => (
-												<div>
-													<Webcam
-														audio={false}
-														videoConstraints={{ deviceId: device.deviceId }}
-													/>
-													{device.label || `Device ${key + 1}`}
-												</div>
-											))} */}
-
-											<Dropdown
-												title='Choose Camera'
-												items={devices}
-												activeDevice={activeDevice}
-												onChangeAction={onChangeAction}
 											/>
 										</div>
 
