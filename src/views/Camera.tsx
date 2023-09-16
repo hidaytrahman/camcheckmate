@@ -1,9 +1,8 @@
 import { Button } from 'react-carbonui';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import Webcam from 'react-webcam';
+import { useEffect, useState } from 'react';
 import { AttentionSeeker } from 'react-awesome-reveal';
 import LoaderWrapped from '../components/common/LoaderWrapped';
-import Dropdown from '../components/common/Dropdown';
+import WebCamera from '../components/features/WebCamera';
 
 const features = [
 	// { name: 'Images', description: 'Choose Images from devices' },
@@ -16,23 +15,11 @@ const features = [
 export default function Camera() {
 	// @ts-ignore
 	const [selectedImage, setSelectedImage] = useState(null);
-	const webcamRef = useRef(null);
+
 	const [imgSrc, setImgSrc] = useState(null);
 	const [cameraMode, setCameraMode] = useState(false);
 	const [loading, setLoading] = useState(true);
 	const [resuleView, setResultView] = useState(false);
-
-	// @ts-ignore
-	const [deviceId, setDeviceId] = useState({});
-	const [activeDevice, setActiveDevice] = useState(null);
-
-	// @ts-ignore
-	const [devices, setDevices] = useState<[]>([]);
-
-	const videoConstraints = {
-		facingMode: 'user',
-		deviceId: deviceId,
-	};
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -53,35 +40,6 @@ export default function Camera() {
 			clearTimeout(timer);
 		};
 	}, [resuleView]);
-
-	const capture = useCallback(() => {
-		// @ts-ignore
-		const imageSrc = webcamRef.current.getScreenshot();
-		setImgSrc(imageSrc);
-	}, [webcamRef, setImgSrc]);
-
-	const handleDevices = useCallback(
-		// @ts-ignore
-		(mediaDevices) =>
-			setDevices(
-				// @ts-ignore
-				mediaDevices.filter(({ kind }) => kind === 'videoinput')
-			),
-		[setDevices]
-	);
-
-	const onChangeAction = (device: any) => {
-		setDeviceId(device.deviceId);
-		setActiveDevice(device);
-	};
-
-	useEffect(() => {
-		navigator.mediaDevices.enumerateDevices().then(handleDevices);
-	}, [handleDevices]);
-
-	useEffect(() => {
-		console.log({ devices });
-	}, [devices]);
 
 	const processNow = () => {
 		setLoading(true);
@@ -157,31 +115,7 @@ export default function Camera() {
 									</div>
 								</div>
 
-								{cameraMode ? (
-									<>
-										<br />
-										<Dropdown
-											title='Choose Camera'
-											items={devices}
-											activeDevice={activeDevice}
-											onChangeAction={onChangeAction}
-										/>
-										<br />
-										<div className='live-camera m-2'>
-											<Webcam
-												// @ts-ignore
-												screenshotFormat='image/jpeg'
-												audio={false}
-												ref={webcamRef}
-												videoConstraints={videoConstraints}
-											/>
-										</div>
-
-										<button onClick={capture}>Capture photo</button>
-									</>
-								) : (
-									<p>Switch on the camera</p>
-								)}
+								<WebCamera cameraMode={cameraMode} setImgSrc={setImgSrc} />
 							</div>
 						</div>
 					</div>
