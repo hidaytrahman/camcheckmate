@@ -10,7 +10,6 @@ export default function Camera() {
 	const [imgSrc, setImgSrc] = useState(null);
 	const [cameraMode, setCameraMode] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const [resuleView, setResultView] = useState(false);
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -21,16 +20,6 @@ export default function Camera() {
 			clearTimeout(timer);
 		};
 	}, []);
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			setLoading(false);
-		}, 4000);
-
-		return () => {
-			clearTimeout(timer);
-		};
-	}, [resuleView]);
 
 	return (
 		<div className='bg-white mb-10'>
