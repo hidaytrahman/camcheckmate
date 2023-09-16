@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { navigation } from '../../utils';
+import { Link } from 'react-router-dom';
 
 const Nav = ({ setMobileMenuOpen }: { setMobileMenuOpen: (arg: boolean) => void }) => {
 	return (
@@ -24,9 +25,9 @@ const Nav = ({ setMobileMenuOpen }: { setMobileMenuOpen: (arg: boolean) => void 
 			</div>
 			<div className='hidden lg:flex lg:gap-x-12'>
 				{navigation.map((item) => (
-					<a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-gray-900'>
+					<Link key={item.name} to={item.href} className='text-sm font-semibold leading-6 text-gray-900'>
 						{item.name}
-					</a>
+					</Link>
 				))}
 			</div>
 		</nav>
