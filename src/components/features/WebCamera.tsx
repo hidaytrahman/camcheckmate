@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Dropdown from '../common/Dropdown';
 import Webcam from 'react-webcam';
 
