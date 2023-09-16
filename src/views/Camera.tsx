@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import { AttentionSeeker } from 'react-awesome-reveal';
 import LoaderWrapped from '../components/common/LoaderWrapped';
+import Dropdown from '../components/common/Dropdown';
 
 const features = [
 	// { name: 'Images', description: 'Choose Images from devices' },
@@ -23,8 +24,10 @@ export default function Camera() {
 
 	// @ts-ignore
 	const [deviceId, setDeviceId] = useState({});
+	const [activeDevice, setActiveDevice] = useState(null);
+
 	// @ts-ignore
-	const [devices, setDevices] = useState([]);
+	const [devices, setDevices] = useState<[]>([]);
 
 	const videoConstraints = {
 		facingMode: 'user',
@@ -67,9 +70,18 @@ export default function Camera() {
 		[setDevices]
 	);
 
+	const onChangeAction = (device: any) => {
+		setDeviceId(device.deviceId);
+		setActiveDevice(device);
+	};
+
 	useEffect(() => {
 		navigator.mediaDevices.enumerateDevices().then(handleDevices);
 	}, [handleDevices]);
+
+	useEffect(() => {
+		console.log({ devices });
+	}, [devices]);
 
 	const processNow = () => {
 		setLoading(true);
@@ -154,6 +166,23 @@ export default function Camera() {
 												audio={false}
 												ref={webcamRef}
 												videoConstraints={videoConstraints}
+											/>
+
+											{/* {devices.map((device, key) => (
+												<div>
+													<Webcam
+														audio={false}
+														videoConstraints={{ deviceId: device.deviceId }}
+													/>
+													{device.label || `Device ${key + 1}`}
+												</div>
+											))} */}
+
+											<Dropdown
+												title='Choose Camera'
+												items={devices}
+												activeDevice={activeDevice}
+												onChangeAction={onChangeAction}
 											/>
 										</div>
 
