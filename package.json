@@ -1,9 +1,9 @@
 {
 	"name": "CamCheckMate",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"type": "module",
-	"homepage": "https://hidaytrahman.github.io/camcheckmate/",
+	"homepage": "https://camcheckmate.vercel.app/",
 	"author": {
 		"name": "Hidayt Rahman",
 		"email": "hidaytrahman@gmail.com",

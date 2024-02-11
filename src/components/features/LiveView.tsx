@@ -69,7 +69,9 @@ function LiveView({ cameraMode, setCameraMode, setImgSrc }: LiveViewPropsTypes) 
 						</div>
 					</div>
 
-					<WebCamera cameraMode={cameraMode} setImgSrc={setImgSrc} />
+					<WebCamera 
+						cameraMode={cameraMode} 
+						setImgSrc={setImgSrc} />
 				</div>
 			</div>
 		</div>
