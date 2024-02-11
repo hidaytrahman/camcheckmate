@@ -26,7 +26,10 @@ export default function Camera() {
 			<div className='mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-10 px-4 py-24 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8  dark:bg-gray-900'>
 				{loading && <LoaderWrapped />}
 
-				<LiveView cameraMode={cameraMode} setCameraMode={setCameraMode} setImgSrc={setImgSrc} />
+				<LiveView cameraMode={cameraMode} 
+					setCameraMode={setCameraMode} 
+					setImgSrc={setImgSrc} />
+
 				<ResultView cameraMode={cameraMode} imgSrc={imgSrc} />
 			</div>
 		</div>

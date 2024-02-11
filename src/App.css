@@ -97,3 +97,31 @@ i {
 /* video {
     transform: scaleX(-1);
 } */
+
+
+.filter-sections {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-sections img {
+    width: 100px;
+    cursor: pointer;
+    background-color: bisque;
+    height: 81px;
+    position: relative;
+}
+
+.filter-sections img::after {
+    content: "";
+    position: absolute;
+    background-color: red;
+    z-index: 99;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
