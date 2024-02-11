@@ -12,10 +12,46 @@ function WebCamera({ cameraMode, setImgSrc }: WebCameraPropsTypes) {
 	const [devices, setDevices] = useState<[]>([]);
 	const [activeDevice, setActiveDevice] = useState(null);
 
+	const [mirrored, setMirrored] = useState<boolean>(false);
+
 	const videoConstraints = {
 		facingMode: 'user',
 		deviceId: deviceId,
 	};
+
+	// Prefer camera resolution nearest to 1280x720.
+	// const constraints = {
+	// 	audio: true,
+	// 	video: { width: 1280, height: 720 },
+	// };
+
+	async function getMedia(constraints: any) {
+		let stream = null;
+
+		try {
+			stream = await navigator.mediaDevices.getUserMedia(constraints);
+			/* use the stream */
+		} catch (err) {
+			/* handle the error */
+		}
+	}
+
+	// navigator.mediaDevices
+	// 	.getUserMedia(constraints)
+	// 	.then((mediaStream) => {
+	// 		const video: any = document.querySelector("video");
+	// 		video.srcObject = mediaStream;
+	// 		video.onloadedmetadata = () => {
+	// 			video.play();
+	// 		};
+
+			
+	// 	})
+	// 	.catch((err) => {
+	// 		// always check for errors at the end.
+	// 		console.error(`${err.name}: ${err.message}`);
+	// 	});
+
 
 	const onChangeAction = (device: any) => {
 		setDeviceId(device.deviceId);
@@ -40,7 +76,9 @@ function WebCamera({ cameraMode, setImgSrc }: WebCameraPropsTypes) {
 
 	useEffect(() => {
 		navigator.mediaDevices.enumerateDevices().then(handleDevices);
+
 	}, [handleDevices]);
+
 
 	return (
 		<div>
@@ -61,10 +99,15 @@ function WebCamera({ cameraMode, setImgSrc }: WebCameraPropsTypes) {
 							audio={false}
 							ref={webcamRef}
 							videoConstraints={videoConstraints}
+							// style={{
+							// 	transform: mirrored ? "scaleX(-1)" : "none"
+							// }}
+							mirrored={mirrored}
 						/>
 					</div>
 
-					<button onClick={capture}>Capture photo</button>
+					<button onClick={() => setMirrored(!mirrored)} className='bg-slate-300 text-black mr-2'>Mirror View [{mirrored ? "ON" : "OFF"}]</button>
+					<button onClick={capture}>Capture photo</button> {" "}
 				</>
 			) : (
 				<p>Switch on the camera</p>
