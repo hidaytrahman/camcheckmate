@@ -28,16 +28,16 @@ function WebCamera({ cameraMode, setImgSrc }: WebCameraPropsTypes) {
 	// 	video: { width: 1280, height: 720 },
 	// };
 
-	async function getMedia(constraints: any) {
-		let stream = null;
+	// async function getMedia(constraints: any) {
+	// 	let stream = null;
 
-		try {
-			stream = await navigator.mediaDevices.getUserMedia(constraints);
-			/* use the stream */
-		} catch (err) {
-			/* handle the error */
-		}
-	}
+	// 	try {
+	// 		stream = await navigator.mediaDevices.getUserMedia(constraints);
+	// 		/* use the stream */
+	// 	} catch (err) {
+	// 		/* handle the error */
+	// 	}
+	// }
 
 	// navigator.mediaDevices
 	// 	.getUserMedia(constraints)
