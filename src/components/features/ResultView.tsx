@@ -22,7 +22,7 @@ function ResultView({ cameraMode, imgSrc }: ResultViewPropsTypes) {
 		<AttentionSeeker effect='pulse' delay={3000}>
 			<div>
 				<h2 className='text-1xl font-bold tracking-tight text-gray-900 sm:text-2xl'>
-					{cameraMode ? 'Scanning from  camera' : 'Connect with Camera'}
+					{cameraMode ? 'Camera is running' : 'Connect with Camera'}
 				</h2>
 				<p className='mt-4 text-gray-500'>
 					{cameraMode
